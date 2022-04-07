@@ -7,6 +7,8 @@ import static java.lang.Math.*;
 public class SnakeandLadder {
     //PLayer's Position
     int position = 0;
+    // No.of Dice roll
+    int countRoll = 0;
 
 
             //UC-1 Player's Game Start with Position 0:
@@ -18,6 +20,7 @@ public class SnakeandLadder {
         public void Diceroll() {
             //UC-5 Ensuring Player get Exact Winning position 100 :
             while (position != 100 ) {
+                countRoll++;
                 Random random = new Random();
                 //UC-2 Rolling Dice to Get Number between 1-6:
                 int diceNo = (int) ((Math.random() * (7 - 1)) + 1);
@@ -51,8 +54,13 @@ public class SnakeandLadder {
                         }
                         break;
                 }
+                // position after every Dice Roll 
                 showPosition();
             }
+        }
+        //UC-6 reporting No.of dice Roll to Win:
+        public void printCountingDiceRoll() {
+            System.out.println("Number's of Dice Roll To Win Game!! "+countRoll);
         }
 
 
@@ -63,6 +71,7 @@ public class SnakeandLadder {
             Player_1.showPosition();
             Player_1.Diceroll();
             Player_1.showPosition();
+            Player_1.printCountingDiceRoll();
 
     }
 
